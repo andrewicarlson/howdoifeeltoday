@@ -1,0 +1,26 @@
+<template name="word">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title hif-word__title">{{ word }}<span class="badge pull-right">{{ feelings }}</span></h3>
+        </div>
+        <div class="hif-panel-content">
+
+            {{ #if definition }}
+                <div class="panel-body">
+                    <p>
+                        {{ definition }}
+                    </p>
+                </div>
+                <div class="hif-word__definition-footer panel-footer">
+                    <span class="badge">{{ feelings }}</span>  people feel this way.
+                    <button class="btn btn-xs btn-info pull-right">This is how I feel <span class="glyphicon glyphicon-thumbs-up"></span></button>
+                </div>
+            {{ else }}
+                <div class="panel-body">
+                    {{ > loading }}
+                </div>
+            {{ /if }}
+
+        </div>
+    </div>
+</template>
