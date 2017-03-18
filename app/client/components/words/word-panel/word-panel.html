@@ -1,6 +1,6 @@
 <template name="wordPanel">
     <div class="panel panel-default">
-        <div class="panel-heading js-toggle-content">
+        <div class="panel-heading m-toggle-content">
             <h3 class="panel-title hif-word__title">{{ this.word }}<span class="badge pull-right">{{ feelings }}</span></h3>
         </div>
         <div class="hif-panel-content hif-hidden">
@@ -15,7 +15,7 @@
                 </div>
                 <div class="hif-word__definition-footer panel-footer">
                     <span class="badge">{{ feelings }}</span>  people feel this way.
-                    <button class="btn btn-xs btn-info pull-right">This is how I feel <span class="glyphicon glyphicon-thumbs-up"></span></button>
+                    <button class="btn btn-xs btn-info pull-right m-feel-this-way" {{ disabled }}>This is how I feel <span class="glyphicon glyphicon-thumbs-up"></span></button>
                 </div>
             {{ else }}
                 <div class="panel-body">
