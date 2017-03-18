@@ -21,8 +21,10 @@ Meteor.methods({
 
             if(!error) {
                 Meteor.call('addDefinition', mongoId, result.data.results, error);
-            } else if(word.slice(-2) === 'ed') {
-                Meteor.call('getDefinition', mongoId, word.slice(0, -2));
+            } else if(word.slice(-1) === 'd' && word.slice(-2) === 'ed') {
+                Meteor.call('getDefinition', mongoId, word.slice(0, -1));
+            } else if(word.slice(-1) === 'e') {
+                Meteor.call('getDefinition', mongoId, word.slice(0, -1));
             } else {
                 Words.update(mongoId, {$set: {'definitions': ['No definition found'], 'feelings': 0}});
             }
