@@ -1,15 +1,17 @@
 <template name="wordPanel">
     <div class="panel panel-default">
-        <div class="panel-heading">
-            <h3 class="panel-title hif-word__title">{{ word }}<span class="badge pull-right">{{ feelings }}</span></h3>
+        <div class="panel-heading js-toggle-content">
+            <h3 class="panel-title hif-word__title">{{ this.word }}<span class="badge pull-right">{{ feelings }}</span></h3>
         </div>
-        <div class="hif-panel-content">
+        <div class="hif-panel-content hif-hidden">
 
-            {{ #if definition }}
+            {{ #if definitions }}
                 <div class="panel-body">
-                    <p>
-                        {{ definition }}
-                    </p>
+                    {{ #each definition in definitions }}
+                        <p>
+                            {{ definition }}
+                        </p>
+                    {{ /each }}
                 </div>
                 <div class="hif-word__definition-footer panel-footer">
                     <span class="badge">{{ feelings }}</span>  people feel this way.

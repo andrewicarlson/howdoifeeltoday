@@ -1,4 +1,6 @@
+import { Words } from '../lib/collections';
+
 Meteor.publish('words', function() {
 
-    return coll.words.find();
+    return Words.find();
 });

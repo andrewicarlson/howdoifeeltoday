@@ -1,13 +1,12 @@
-Template.wordGroup.onCreated(function wordGroupOnCreated() {
-   //Meteor.subscribe('words');
+import { Session } from 'meteor/session'
+import { Words } from '../../../../lib/collections.js';
 
-   console.log(coll.words.find({}).fetch());
+Template.wordGroup.onCreated(function wordGroupOnCreated() {
+    Meteor.subscribe('words');
 });
 
 Template.wordGroup.helpers({
     words: function() {
-
-       console.log(coll.words.find({}).fetch());
-       return coll.words.find({});
+       return Words.find({type: Session.get('feelingType')});
     }
 });

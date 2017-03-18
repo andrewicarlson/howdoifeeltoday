@@ -1,3 +1,3 @@
-coll = {}; // We want this to be global across client and server
+import { Mongo } from 'meteor/mongo';
 
-coll.words = new Mongo.Collection('words');
+export const Words = new Mongo.Collection('words', {idGeneration: 'MONGO'});
