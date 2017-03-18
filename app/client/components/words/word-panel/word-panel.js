@@ -4,7 +4,7 @@ import { Session } from 'meteor/session';
 
 Template.wordPanel.helpers({
     disabled: function() {
-        return Session.get(this._id) ? 'disabled' : 'asdf';
+        return Session.get(this._id) ? 'disabled' : '';
     }
 });
 
