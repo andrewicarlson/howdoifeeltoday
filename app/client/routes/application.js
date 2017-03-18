@@ -12,5 +12,11 @@ Router.configure({
 
 Router.route('/', function() {
 
-    this.render('home');
+    this.wait(Meteor.subscribe('words'));
+
+    if(this.ready()) {
+        this.render('home');
+    } else {
+        this.render('loading');
+    }
 });

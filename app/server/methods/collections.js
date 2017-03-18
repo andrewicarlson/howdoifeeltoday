@@ -52,6 +52,8 @@ Meteor.methods({
         check(documentId, String);
         check(collection, String);
 
+        // TODO: validate admin
+
         if( Meteor.userId() && typeof updateObj === 'object' ) {
 
             var collection = coll[collection];
