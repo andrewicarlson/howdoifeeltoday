@@ -26,7 +26,7 @@ export var deepPluck = function(info) {
         return info;
     }
 
-    return deepReduce({
+    return deepPluck({
         haystack: nextSearch,
         needle: info.needle,
         basket: info.basket

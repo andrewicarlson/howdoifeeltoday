@@ -22,6 +22,8 @@ Meteor.methods({
 
             if(!error) {
                 Meteor.call('addDefinition', mongoId, result.data.results, error);
+            } else if(word.slice(-1) === 'd' && word.slice(-3) === 'ied') {
+                Meteor.call('getDefinition', mongoId, (word.slice(0, -3) + 'y'));
             } else if(word.slice(-1) === 'd' && word.slice(-2) === 'ed') {
                 Meteor.call('getDefinition', mongoId, word.slice(0, -1));
             } else if(word.slice(-1) === 'e') {
@@ -40,6 +42,6 @@ Meteor.methods({
             basket: []
         });
 
-        Words.update(mongoId, {$set: {'definitions': definitions, 'feelings': 0}});
+        Words.update(mongoId, {$set: {'definitions': definitions.basket, 'feelings': 0}});
     }
 });
